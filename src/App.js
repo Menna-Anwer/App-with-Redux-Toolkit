@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useEffect } from "react";
+import {useSelector , useDispatch} from "react-redux"
+import Rows from './components/Rows/Rows';
+import { deletePosts, fetchPosts } from './State/Slices/postSlice';
 
 function App() {
+  const {records,loading ,error} = useSelector(state => state.posts)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchPosts())
+  },[dispatch])
+
+  const  deleteRecords = useCallback((id)=>{
+     dispatch(deletePosts(id))
+  },[dispatch])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Rows data={records}  loaging={loading} error={error} deleteRecords={deleteRecords}/>
     </div>
   );
 }

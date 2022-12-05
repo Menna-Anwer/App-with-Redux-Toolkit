@@ -1,0 +1,42 @@
+.header {
+    margin-bottom: 30px;
+    /* margin-top: 20px; */
+  }
+  
+  .header h1 {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+  }
+  .header .nav {
+    background-color: black;
+    height: 50px;
+    list-style: none;
+    display: flex;
+     justify-content: space-between;
+    align-items: center;
+  }
+  .links{
+    display: flex;
+  }
+  
+  .header .nav li:first-child {
+    margin-left: auto;
+  }
+  
+  .header .nav li {
+    margin-right: 30px;
+  }
+  
+  .header .nav li a {
+    color: rgb(197, 194, 194);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .header .nav .active {
+    color: white;
+  }
+  .login {
+    color: rgb(197, 194, 194);;
+    font-size: 20px;
+  }
